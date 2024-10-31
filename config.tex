@@ -1,0 +1,90 @@
+% Configure URLs and hyperlinks
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+% Create a pleasant code block style
+\lstdefinestyle{paperStyle1}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+% ===============================================================================
+% From
+% https://tex.stackexchange.com/questions/94902/how-can-i-use-line-numbers-with-leading-zeros
+% Pads codeblock line numbers with zeros and aligns them correctly
+
+\errorcontextlines=\maxdimen
+
+\newcommand*{\boxeddecimalnum}[1]{\makebox[3em][r]{\decimalnum{#1}}}
+\usepackage{refcount}
+\usepackage{fmtcount}
+\usepackage{intcalc}
+
+\def\getnumdigitsaux #1{%
+    \ifx#1\quark
+        \expandafter\relax
+    \else
+        +1\expandafter\getnumdigitsaux
+    \fi
+}
+
+\def\quark{\quark}
+\newcommand\getnumdigits[1]{%
+    \the\numexpr\getnumdigitsaux #1\quark
+}
+
+\newcounter{lstuniquenumber}
+\makeatletter
+\lst@AddToHook{Init}{\stepcounter{lstuniquenumber}\edef\lastlineincurrentlisting{\intcalcDec{\getrefnumber{lastlineinlisting\thelstuniquenumber}}}\padzeroes[\expandafter\getnumdigits\expandafter{\lastlineincurrentlisting}]} % at the start of each listing, count the listing, and try to restore the line number saved in the previous run
+\lst@AddToHook{DeInit}{\label{lastlineinlisting\thelstuniquenumber}} % at the end of each listing, save one past the last line number
+\makeatother
+
+% ==============================================================================
+
+\definecolor{myRed}{rgb}{0.96, 0.35, 0.40}
+\definecolor{myGreen}{rgb}{0.65, 0.89, 0.18}
+\definecolor{myBlue}{rgb}{0.25, 0.65, 0.99}
+\definecolor{myPurple}{rgb}{0.78, 0.35, 0.91}
+
+\lstdefinestyle{lstStyle0}{
+    autogobble,
+    columns=fullflexible,
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    showstringspaces=false,
+    breakatwhitespace=true,
+    escapeinside={(*@}{@*)},
+    identifierstyle=\color{myPurple}
+    commentstyle=\color{greencomments},
+    keywordstyle=\color{bluekeywords},
+    stringstyle=\color{redstrings},
+    % prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    numberstyle=\color{graynumbers}\ttfamily\boxeddecimalnum,
+    morekeywords={psrotate},
+    basicstyle=\ttfamily\footnotesize,
+    frame=1,
+    numbers=left,
+    framesep=22pt,
+    tabsize=4,
+    captionpos=b,
+    xleftmargin=5.5ex
+}

@@ -1,0 +1,106 @@
+% Mathematics Packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+
+% Graphics and Plotting
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+% Subfigures and Figures
+\usepackage{subfig}
+\usepackage{graphicx}
+
+% Code Listings
+\usepackage{listings}
+\usepackage{lstautogobble}  % Fix relative indenting
+\usepackage{color}          % Code coloring
+\usepackage{xcolor}         % Additional color support
+\usepackage{zi4}            % Nice font for code
+
+% Algorithms
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tablefootnote}
+
+% Document Layout
+\usepackage[left=1cm, right=1cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{flushend}
+
+% References and Citations
+\usepackage{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{notoccite}
+
+% Text and Font
+\usepackage{yfonts}
+\usepackage{relsize}
+\usepackage{fontawesome}
+
+% Miscellaneous
+\usepackage{adjustbox}
+\usepackage{glossaries}
+\usepackage{placeins}
+\usepackage{forest}
+\usepackage{tcolorbox} % For colored boxes and enhanced formatting
+\usepackage{zref-totpages} % For referencing total pages
+\usepackage{etoolbox} % For programming enhancements
+
+% Dummy Text
+\usepackage{lipsum}
+\usepackage{blindtext}
+
+% TikZ and PGF Libraries
+\usetikzlibrary{
+    shapes,                       % Basic shapes
+    decorations,                  % Decorations like braces and arrows
+    calc,                         % Calculations with TikZ
+    arrows,                       % Arrows and arrow tips
+    arrows.meta,                  % More arrow tips
+    3d,                           % 3D capabilities
+    fit,                          % Fit nodes into a specified area
+    backgrounds,                  % Background layers
+    decorations.text,             % Text along paths
+    matrix,                       % Matrix structures
+    positioning,                  % Easy positioning of nodes
+    shapes.symbols,               % Additional shapes like stars and clouds
+    decorations.pathreplacing,    % Replacing parts of paths
+    calligraphy,                  % Calligraphic styles
+    patterns,                     % Fill patterns
+    intersections,                % Intersection of paths
+    mindmap,                      % Mind maps
+    graphs,                       % Graph drawing
+    trees,                        % Tree structures
+    plotmarks,                    % Plot marks
+    shadows,                      % Shadows for added depth
+    angles,                       % Angles and labels
+    quotes,                       % Quotes and annotations
+    spy,                          % Zoom in on parts of a picture
+    through,                      % Drawing through points
+    shapes.geometric,             % Geometric shapes
+    shapes.multipart,             % Multipart shapes
+    shapes.arrows,                % Arrow shapes
+    decorations.markings,         % Custom path markings
+    external                      % Externalization of tikz pictures
+}
+
+% Externalize tikz and pgf diagrams
+\usepgfplotslibrary{
+    groupplots,    % Multiple subplots in a grid.
+    dateplot,      % Time series data plotting.
+    statistics,    % Statistical plots like box plots.
+    external,      % Compile plots separately.
+    colormaps,     % Predefined colormaps.
+    ternary,       % Ternary plots.
+    patchplots,    % Patch plots for FEM.
+    polar,         % Polar coordinate plots.
+    fillbetween,   % Fill area between curves.
+    units          % Manage units in plots.
+}
+
