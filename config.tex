@@ -63,6 +63,7 @@
 \definecolor{myGreen}{rgb}{0.65, 0.89, 0.18}
 \definecolor{myBlue}{rgb}{0.25, 0.65, 0.99}
 \definecolor{myPurple}{rgb}{0.78, 0.35, 0.91}
+\definecolor{myGray}{rgb}{0.5, 0.5, 0.5}
 
 \lstdefinestyle{lstStyle0}{
     autogobble,
@@ -73,12 +74,11 @@
     showstringspaces=false,
     breakatwhitespace=true,
     escapeinside={(*@}{@*)},
-    identifierstyle=\color{myPurple}
-    commentstyle=\color{greencomments},
-    keywordstyle=\color{bluekeywords},
-    stringstyle=\color{redstrings},
-    % prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
-    numberstyle=\color{graynumbers}\ttfamily\boxeddecimalnum,
+    identifierstyle=\color{myPurple},
+    commentstyle=\color{myGreen},
+    keywordstyle=\color{myBlue},
+    stringstyle=\color{myRed},
+    numberstyle=\color{myGray}\ttfamily\boxeddecimalnum,
     morekeywords={psrotate},
     basicstyle=\ttfamily\footnotesize,
     frame=1,
@@ -88,3 +88,14 @@
     captionpos=b,
     xleftmargin=5.5ex
 }
+
+% Set style 0 as the default
+\lstset{style=lstStyle0}
+
+% Define a new tcolorbox style with line numbers
+\tcbuselibrary{listingsutf8}
+\tcbuselibrary{listings}
+
+% Column separation default
+\setlength{\columnsep}{1cm}
+

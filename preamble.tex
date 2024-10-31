@@ -1,0 +1,55 @@
+% Provide \codeword{something useful} for inline code
+\NewDocumentCommand{\codeword}{v}{%
+    \textcolor{darkgray}{\textbf{#1}}%
+}
+
+% Grey box
+\newtcolorbox{greybox}[1]{%
+    colback=black!5!white,
+    colframe=white!25!black,
+    title={#1}
+}
+
+% Red box
+\newtcolorbox{redbox}[1]{%
+    colback=myRed!5!white,
+    colframe=myRed,
+    title={#1}
+}
+
+% Blue box
+\newtcolorbox{bluebox}[1]{%
+    colback=myBlue!5!white,
+    colframe=myBlue,
+    title={#1}
+}
+
+% Green box
+\newtcolorbox{greenbox}[1]{%
+    colback=myGreen!5!white,
+    colframe=myGreen,
+    title={#1}
+}
+
+% Code box
+\newtcolorbox{codebox}[1]{%
+    colback=blue!3!white,
+    colframe=white!50!black,
+    title={\faCode \quad #1}
+}
+
+% \newtcolorbox{theorem}[1]{%
+%     colback=black!5!white,
+%     colframe=white!35!black,
+%     sharp corners,
+%     title={Theorem: #1}
+% }
+
+\newmdtheoremenv{theorem}{Theorem}
+\newmdtheoremenv{lemma}{Lemma}
+\newmdtheoremenv{corollary}{Corollary}
+\newmdtheoremenv{proposition}{Proposition}
+
+% Define a nice C++ typesetting
+\newcommand\CPP{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}}}
+
