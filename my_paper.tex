@@ -4,6 +4,14 @@
 \input{config}
 \input{preamble}
 
+\ifdraft{
+    \linenumbers
+    \usepackage{draftwatermark}
+    \SetWatermarkText{DRAFT}
+    \SetWatermarkScale{1}
+    \linenumbers
+}
+
 \begin{document}
 
 \input{title}
@@ -11,3 +19,5 @@
 \input{main}
 
 \end{document}
+
+\ifdraft{\nolinenumbers}

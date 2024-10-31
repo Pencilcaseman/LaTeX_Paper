@@ -1,49 +1,93 @@
+% Draft Mode
+\IfFileExists{draft.flag}{
+    % Set draft flag
+    \newcommand{\draft}{true}
+}{
+    \newcommand{\draft}{false}
+}
+
+\newcommand{\ifdraft}[1]{\ifthenelse{\equal{\draft}{true}}{#1}{}}
+
 % Provide \codeword{something useful} for inline code
 \NewDocumentCommand{\codeword}{v}{%
     \textcolor{darkgray}{\textbf{#1}}%
 }
 
 % Grey box
-\newtcolorbox{greybox}[1]{%
+\newtcolorbox{greyboxImpl}[1]{%
     colback=black!5!white,
     colframe=white!25!black,
-    title={#1}
+    title={#1},
+}
+
+\newenvironment{greybox}[1]{
+    \nolinenumbers
+    \begin{greyboxImpl}{#1}
+        }{%
+    \end{greyboxImpl}
+
+    \ifdraft{\linenumbers}
 }
 
 % Red box
-\newtcolorbox{redbox}[1]{%
+\newtcolorbox{redboxImpl}[1]{%
     colback=myRed!5!white,
     colframe=myRed,
-    title={#1}
+    title={#1},
+}
+
+\newenvironment{redbox}[1]{
+    \nolinenumbers
+    \begin{redboxImpl}{#1}
+        }{%
+    \end{redboxImpl}
+    \ifdraft{\linenumbers}
 }
 
 % Blue box
-\newtcolorbox{bluebox}[1]{%
+\newtcolorbox{blueboxImpl}[1]{%
     colback=myBlue!5!white,
     colframe=myBlue,
-    title={#1}
+    title={#1},
+}
+
+\newenvironment{bluebox}[1]{
+    \nolinenumbers
+    \begin{blueboxImpl}{#1}
+        }{%
+    \end{blueboxImpl}
+    \ifdraft{\linenumbers}
 }
 
 % Green box
-\newtcolorbox{greenbox}[1]{%
+\newtcolorbox{greenboxImpl}[1]{%
     colback=myGreen!5!white,
     colframe=myGreen,
-    title={#1}
+    title={#1},
+}
+
+\newenvironment{greenbox}[1]{
+    \nolinenumbers
+    \begin{greenboxImpl}{#1}
+        }{%
+    \end{greenboxImpl}
+    \ifdraft{\linenumbers}
 }
 
 % Code box
-\newtcolorbox{codebox}[1]{%
+\newtcolorbox{codeboxImpl}[1]{%
     colback=blue!3!white,
     colframe=white!50!black,
-    title={\faCode \quad #1}
+    title={\faCode \quad #1},
 }
 
-% \newtcolorbox{theorem}[1]{%
-%     colback=black!5!white,
-%     colframe=white!35!black,
-%     sharp corners,
-%     title={Theorem: #1}
-% }
+\newenvironment{codebox}[1]{
+    \nolinenumbers
+    \begin{codeboxImpl}{#1}
+        }{%
+    \end{codeboxImpl}
+    \ifdraft{\linenumbers}
+}
 
 \newmdtheoremenv{theorem}{Theorem}
 \newmdtheoremenv{lemma}{Lemma}
