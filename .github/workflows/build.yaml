@@ -14,10 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup TeXLive Action
-        uses: teatimeguest/setup-texlive-action@v3
-        with:
-          packages: scheme-full
+      - name: Install TeXLive
+        run: |
+          sudo apt-get update
+          sudo apt-get install texlive-full
+          sudo apt-get install texlive-lang-english
 
       - name: Check Environment Variables
         run: |
