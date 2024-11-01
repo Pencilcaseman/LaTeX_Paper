@@ -12,7 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Install TeXLive
         run: |
@@ -33,14 +33,6 @@ jobs:
 
       - name: Build Final
         run: make
-
-      # # If the build fails, output the log file
-      # - name: Upload Log File
-      #   if: failure()
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: log
-      #     path: my_paper.log
 
       - name: Find and Zip Log Files
         if: failure()
