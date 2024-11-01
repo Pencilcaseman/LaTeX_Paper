@@ -17,7 +17,7 @@ jobs:
       - name: Setup TeXLive Action
         uses: teatimeguest/setup-texlive-action@v3.3.1
         with:
-          packages: full
+          packages: scheme-full
 
       - name: Build Draft
         run: |
