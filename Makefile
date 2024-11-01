@@ -29,9 +29,13 @@ SOURCES  = $(TARGET:=.tex)
 # build: build-stage0
 # 	$(MAKE) build-stage1
 
-build: $(MAKE) build-stage1
+build:  build-stage0
+	$(MAKE) build-stage1
 
 build-target: $(TARGET).pdf
+
+build-stage0:
+	if [ ! -d tikz_figures ]; then mkdir tikz_figures; fi
 
 deps-stage1: $(SOURCES)
 
@@ -81,6 +85,7 @@ distclean:: clean
 	$(RM) $(TARGET).makefile
 	$(RM) *.auxlock
 	if [ -d cache ]; then $(MAKE) -C cache clean; fi
+	if [ -d tikz_figures ]; then $(RM) -r tikz_figures; fi
 
 # dummy file, may be requested erroneously by bibunits
 bu.aux:

@@ -349,3 +349,5 @@
 # TeXStudio
 *.bak~
 
+# Tikz Figures
+tikz_figures

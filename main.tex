@@ -1,69 +1,64 @@
-\begin{multicols}{2}
-    Hello, World!
+Hello, World!
 
-    \lipsum[10]
+\input{sections/introduction}
+
+\lipsum[10]
+
+\begin{equation*}
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation*}
+
+\begin{greybox}{This is a title}
+    This is some text.
+
+    This is on a new line.
+
+    This is on another new line.\\
+    Here is an equation:
 
     \begin{equation*}
         x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
     \end{equation*}
+\end{greybox}
 
-    \Blinddocument
+\begin{redbox}{This is a title}
+    This is some text.
 
-    \nolinenumbers
-    \begin{greybox}{This is a title}
-        This is some text.
+    This is on a new line.
 
-        This is on a new line.
+    This is on another new line.
 
-        This is on another new line.\\
-        Here is an equation:
+    \begin{equation*}
+        x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+    \end{equation*}
+\end{redbox}
 
-        \begin{equation*}
-            x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-        \end{equation*}
-    \end{greybox}
-    \linenumbers
+\begin{bluebox}{This is a title}
+    This is some text.
 
-    \begin{redbox}{This is a title}
-        This is some text.
+    This is on a new line.
 
-        This is on a new line.
+    This is on another new line.
 
-        This is on another new line.
+    \begin{equation*}
+        x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+    \end{equation*}
+\end{bluebox}
 
-        \begin{equation*}
-            x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-        \end{equation*}
-    \end{redbox}
+\begin{greenbox}{This is a title}
+    This is some text.
 
-    \begin{bluebox}{This is a title}
-        This is some text.
+    This is on a new line.
 
-        This is on a new line.
+    This is on another new line.
 
-        This is on another new line.
+    \begin{equation*}
+        x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+    \end{equation*}
+\end{greenbox}
 
-        \begin{equation*}
-            x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-        \end{equation*}
-    \end{bluebox}
-
-    \begin{greenbox}{This is a title}
-        \linenumbers
-        This is some text.
-
-        This is on a new line.
-
-        This is on another new line.
-
-        \begin{equation*}
-            x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-        \end{equation*}
-        \nolinenumbers
-    \end{greenbox}
-
-    \begin{codebox}{This is a title}
-        \begin{lstlisting}[language=C++]
+\begin{codebox}{This is a title}
+    \begin{lstlisting}[language=C++]
         #include <iostream>
 
         int main() {
@@ -71,9 +66,9 @@
             return 0;
         }
     \end{lstlisting}
-    \end{codebox}
+\end{codebox}
 
-    \begin{lstlisting}[language=C++]
+\begin{lstlisting}[language=C++]
         #include <iostream>
 
         int main() {
@@ -82,47 +77,53 @@
         }
 \end{lstlisting}
 
-    \begin{theorem}
-        \textbf{Pythagoras' Theorem}
+\begin{theorem}
+    \textbf{Pythagoras' Theorem}
 
-        For a right triangle with legs $a$ and $b$, the length of the hypotenuse is
-        $c = \sqrt{a^2 + b^2}$.
+    For a right triangle with legs $a$ and $b$, the length of the hypotenuse is
+    $c = \sqrt{a^2 + b^2}$.
 
-        \begin{equation*}
-            a^2 + b^2 = c^2
-        \end{equation*}
-    \end{theorem}
+    \begin{equation*}
+        a^2 + b^2 = c^2
+    \end{equation*}
+\end{theorem}
 
-    \begin{lemma}
-        \textbf{Pythagoras' Theorem}
+\begin{lemma}
+    \textbf{Pythagoras' Theorem}
 
-        For a right triangle with legs $a$ and $b$, the length of the hypotenuse is
-        $c = \sqrt{a^2 + b^2}$.
+    For a right triangle with legs $a$ and $b$, the length of the hypotenuse is
+    $c = \sqrt{a^2 + b^2}$.
 
-        \begin{equation*}
-            a^2 + b^2 = c^2
-        \end{equation*}
-    \end{lemma}
+    \begin{equation*}
+        a^2 + b^2 = c^2
+    \end{equation*}
+\end{lemma}
 
-    \begin{corollary}
-        \textbf{Pythagoras' Theorem}
+\begin{corollary}
+    \textbf{Pythagoras' Theorem}
 
-        For a right triangle with legs $a$ and $b$, the length of the hypotenuse is
-        $c = \sqrt{a^2 + b^2}$.
+    For a right triangle with legs $a$ and $b$, the length of the hypotenuse is
+    $c = \sqrt{a^2 + b^2}$.
 
-        \begin{equation*}
-            a^2 + b^2 = c^2
-        \end{equation*}
-    \end{corollary}
+    \begin{equation*}
+        a^2 + b^2 = c^2
+    \end{equation*}
+\end{corollary}
 
-    \begin{proposition}
-        \textbf{Pythagoras' Theorem}
+\begin{proposition}
+    \textbf{Pythagoras' Theorem}
 
-        For a right triangle with legs $a$ and $b$, the length of the hypotenuse is
-        $c = \sqrt{a^2 + b^2}$.
+    For a right triangle with legs $a$ and $b$, the length of the hypotenuse is
+    $c = \sqrt{a^2 + b^2}$.
 
-        \begin{equation*}
-            a^2 + b^2 = c^2
-        \end{equation*}
-    \end{proposition}
-\end{multicols}
+    \begin{equation*}
+        a^2 + b^2 = c^2
+    \end{equation*}
+\end{proposition}
+
+This shouldn't impact the compile times. Does it??
+
+This might work now.
+
+This should not impact the compile times whatsoever. It should compile nice and
+fast because we have Tikz externalize enabled. \LaTeX is so cool!

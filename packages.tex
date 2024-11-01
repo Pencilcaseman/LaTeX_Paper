@@ -5,6 +5,7 @@
 
 % Graphics and Plotting
 \usepackage{tikz}
+\usepackage{tikz-3dplot}
 \usepackage{pgfplots}
 
 % Subfigures and Figures
@@ -27,11 +28,16 @@
 \usepackage{longtable}
 \usepackage{tablefootnote}
 
+% Two columns
+\usepackage{extsizes}
+
 % Document Layout
-\usepackage[left=1.5cm, right=1.5cm, top=3.5cm, bottom=3.5cm]{geometry}
+\usepackage[left=1.5cm, right=1.5cm, top=3.5cm, bottom=3.5cm, twocolumn]{geometry}
 \usepackage{multicol}
 \usepackage{fancyhdr}
 \usepackage{flushend}
+\usepackage{authoraftertitle}
+\usepackage{titling}
 
 % References and Citations
 \usepackage{hyperref}
@@ -91,7 +97,8 @@
     shapes.multipart,             % Multipart shapes
     shapes.arrows,                % Arrow shapes
     decorations.markings,         % Custom path markings
-    external                      % Externalization of tikz pictures
+    external,                     % Externalization of tikz pictures
+    math                          % Mathematical things
 }
 
 % Externalize tikz and pgf diagrams
@@ -105,6 +112,7 @@
     patchplots,    % Patch plots for FEM.
     polar,         % Polar coordinate plots.
     fillbetween,   % Fill area between curves.
-    units          % Manage units in plots.
+    units,         % Manage units in plots.
+    colorbrewer,   % Color maps
 }
 
