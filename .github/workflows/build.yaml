@@ -33,18 +33,30 @@ jobs:
       - name: Build Final
         run: make
 
-      # If the build fails, output the log file
-      - name: Upload Log File
+      # # If the build fails, output the log file
+      # - name: Upload Log File
+      #   if: failure()
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: log
+      #     path: my_paper.log
+
+      - name: Find and Zip Log Files
         if: failure()
-        uses: actions/upload-artifact@v4
+        run: |
+          find . -name "*.log" -print0 | xargs -0 zip logs.zip
+
+      - name: Upload Log Files
+        if: failure()
+        uses: actions/upload-artifact@v2
         with:
-          name: log.log
-          path: my_paper.log
+          name: latex-logs
+          path: logs.zip
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: compiled.zip
+          name: compiled
           path: |
             my_paper.pdf
             my_paper_draft.pdf
