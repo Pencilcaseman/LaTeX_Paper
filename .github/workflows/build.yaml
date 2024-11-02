@@ -14,16 +14,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # - name: Install TeXLive
-      #   run: |
-      #     sudo apt-get update
-      #     sudo apt-get install texlive-full
-      #     sudo apt-get install texlive-lang-english
+      - name: Install TeXLive
+        run: |
+          sudo apt-get update
+          sudo apt-get install texlive-full
+          sudo apt-get install texlive-lang-english
 
-      - name: Cache TeXLive
-        uses: awalsh128/cache-apt-pkgs-action@v1
-        with:
-          packages: texlive-full texlive-lang-english
+      # - name: Cache TeXLive
+      #   uses: awalsh128/cache-apt-pkgs-action@v1
+      #   with:
+      #     packages: texlive-full texlive-lang-english
 
       - name: Check Environment Variables
         run: |
