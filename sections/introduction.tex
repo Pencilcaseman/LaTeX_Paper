@@ -1,6 +1,5 @@
 \begin{figure}[ht]
     \centering
-
     \begin{tikzpicture}
         \begin{axis}[
                 title={$x \exp(-x^2-y^2)$},
@@ -12,7 +11,67 @@
                 domain=-2:2,
                 % domain y=-1:1,
                 colormap/viridis,
-                samples=20,
+                samples=12,
+            ]
+            {exp(-x^2-y^2)*x};
+        \end{axis}
+    \end{tikzpicture}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+                title={$x \exp(-x^2-y^2)$},
+                xlabel=$x$, ylabel=$y$,
+                % small,
+            ]
+            \addplot3[
+                surf,
+                domain=-2:2,
+                % domain y=-1:1,
+                colormap/viridis,
+                samples=25,
+            ]
+            {exp(-x^2-y^2)*x};
+        \end{axis}
+    \end{tikzpicture}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+                title={$x \exp(-x^2-y^2)$},
+                xlabel=$x$, ylabel=$y$,
+                % small,
+            ]
+            \addplot3[
+                surf,
+                domain=-2:2,
+                % domain y=-1:1,
+                colormap/viridis,
+                samples=50,
+            ]
+            {exp(-x^2-y^2)*x};
+        \end{axis}
+    \end{tikzpicture}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+                title={$x \exp(-x^2-y^2)$},
+                xlabel=$x$, ylabel=$y$,
+                % small,
+            ]
+            \addplot3[
+                surf,
+                domain=-2:2,
+                % domain y=-1:1,
+                colormap/viridis,
+                samples=100,
             ]
             {exp(-x^2-y^2)*x};
         \end{axis}
