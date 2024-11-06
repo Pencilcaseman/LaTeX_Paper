@@ -26,6 +26,9 @@
     tabsize=2
 }
 
+% Automatically disable line numbers in lstlisting environments
+\AtBeginEnvironment{lstlisting}{\nolinenumbers}
+
 % ===============================================================================
 % From
 % https://tex.stackexchange.com/questions/94902/how-can-i-use-line-numbers-with-leading-zeros
@@ -115,6 +118,6 @@
 \tcbuselibrary{listings}
 
 % Column separation default
-\setlength{\columnsep}{1cm}
+\setlength{\columnsep}{0.65cm}
 
 \tikzexternalize[prefix=tikz_figures/]
