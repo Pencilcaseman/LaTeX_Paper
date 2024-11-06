@@ -39,8 +39,9 @@
 \usepackage{multicol}
 \usepackage{fancyhdr}
 \usepackage{flushend}
-\usepackage{authoraftertitle}
-\usepackage{titling}
+\usepackage{authoraftertitle} % Put author after title
+\usepackage{titling} % Custom title formatting
+\usepackage{titlesec} % Custom section formatting
 \usepackage{float}
 \usepackage{placeins}
 
@@ -68,8 +69,11 @@
 \usepackage{lipsum}
 \usepackage{blindtext}
 
-% Cheeky line numbers down the side of the page
+% Line numbers down the side of the page
 \usepackage[switch]{lineno}
+
+% Not sure why this needs to be last, but it breaks otherwise...
+\usepackage{authblk} % Better author formatting
 
 % TikZ and PGF Libraries
 \usetikzlibrary{

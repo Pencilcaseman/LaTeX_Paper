@@ -1,4 +1,5 @@
-\documentclass[11pt, a4paper, twocolumn]{extarticle}
+% \documentclass[11pt, a4paper, twocolumn]{extarticle}
+\documentclass[11pt, a4paper, twocolumn]{article}
 
 \input{packages}
 \input{config}
@@ -15,6 +16,22 @@
 \begin{document}
 
 \input{title}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\ifdef{\compactAuthor}{
+    % Left header
+    \fancyhf[lh]{\compactAuthor}
+
+    % Center header
+    \fancyhf[ch]{\MyTitle}
+}{
+    \fancyhf[lh]{\MyTitle}
+}
+
+% Page numbers
+\fancyhf[rh]{Page \thepage{} of \ztotpages}
 
 \input{main}
 

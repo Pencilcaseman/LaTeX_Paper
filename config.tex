@@ -65,6 +65,24 @@
 \definecolor{myPurple}{rgb}{0.78, 0.35, 0.91}
 \definecolor{myGray}{rgb}{0.5, 0.5, 0.5}
 
+\definecolor{myDarkRed}{rgb}{0.41, 0.02, 0.00}
+\definecolor{myDarkGreen}{rgb}{0.00, 0.41, 0.05}
+\definecolor{myDarkBlue}{rgb}{0.03, 0.11, 0.44}
+
+% Section Formatting
+\titleformat{\section}{\color{myDarkBlue}\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\color{myDarkBlue}\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\color{myDarkBlue}\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{\color{myDarkBlue}\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+
+% Customize \maketitle
+\pretitle{\begin{center}\Huge\bfseries\color{myDarkBlue}}
+        \posttitle{\par\end{center}\vskip 0.5em}
+\preauthor{\begin{center}\large}
+        \postauthor{\end{center}}
+\predate{\begin{center}\large}
+        \postdate{\end{center}}
+
 \lstdefinestyle{lstStyle0}{
     autogobble,
     columns=fullflexible,
