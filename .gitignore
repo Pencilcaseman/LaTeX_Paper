@@ -351,3 +351,6 @@
 
 # Tikz Figures
 tikz_figures
+
+# Not sure why these appear, but we don't want them
+my_paper_*

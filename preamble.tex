@@ -13,6 +13,22 @@
     \textcolor{darkgray}{\textbf{#1}}%
 }
 
+% Red box
+\newtcolorbox{coloredboxImpl}[2]{%
+    colback=#1!5!white,
+    colframe=#1,
+    sharp corners,
+    title={#2},
+}
+
+\newenvironment{coloredbox}[2]{
+    \nolinenumbers
+    \begin{coloredboxImpl}{#1}{#2}
+        }{%
+    \end{coloredboxImpl}
+    \ifdraft{\linenumbers}
+}
+
 % Grey box
 \newtcolorbox{greyboxImpl}[1]{%
     colback=black!5!white,

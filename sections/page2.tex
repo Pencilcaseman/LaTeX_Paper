@@ -1,0 +1,61 @@
+\begin{redbox}{This is a new red box}
+    This is some text.
+
+    \begin{equation*}
+        e^{i\pi} + 1 = 0
+    \end{equation*}
+\end{redbox}
+
+\begin{figure*}
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                    legend entries={
+                            Series 1,
+                            Series 2,
+                            Series 3,
+                        },
+                    % grid=both,
+                    % grid style={line width=.2pt, draw=gray!20},
+                    % minor grid style={line width=.4pt, draw=gray!20},
+                    xmode=log,
+                    log basis x=2,
+                    ymode=log,
+                    width=0.85\linewidth,
+                    height=8cm,
+                    legend style={
+                        },
+                    legend pos=outer north east,
+                    title={A Cool Graph},
+                    xlabel=Number of SFC Indices,
+                    ylabel=Time (ms)]
+                \addplot table [x=N, y=Series 1, col sep=comma]
+                    {data/my_data.csv};
+                \addplot table [x=N, y=Series 2, col sep=comma]
+                    {data/my_data.csv};
+                \addplot table [x=N, y=Series 3, col sep=comma]
+                    {data/my_data.csv};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    \caption{
+        A cool graph that shows many cool things. This graph is so cool that you
+        could probably obtain liquid helium from it.
+    }
+    \label{fig:gigascaling}
+\end{figure*}
+
+Look how quickly this compiles!
+
+\begin{coloredbox}{myRed}{This is a new red box}
+    \begin{equation*}
+        e^{i\theta} = \cos(\theta) + i\sin(\theta)
+    \end{equation*}
+\end{coloredbox}
+
+\definecolor{sample_col}{rgb}{0.25, 0.5, 0.12}
+\begin{coloredbox}{sample_col}{This is a new red box}
+    \begin{equation*}
+        e^{i\theta} = \cos(\theta) + i\sin(\theta)
+    \end{equation*}
+\end{coloredbox}
