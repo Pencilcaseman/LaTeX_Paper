@@ -8,10 +8,8 @@
 
 \newcommand{\ifdraft}[1]{\ifthenelse{\equal{\draft}{true}}{#1}{}}
 
-% Provide \codeword{something useful} for inline code
-\NewDocumentCommand{\codeword}{v}{%
-    \textcolor{darkgray}{\textbf{#1}}%
-}
+% Provide \code{something useful} for inline code
+\newcommand{\code}{\texttt}
 
 % Red box
 \newtcolorbox{coloredboxImpl}[2]{%
