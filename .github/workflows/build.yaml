@@ -14,17 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # - name: Install TeXLive
-      #   run: |
-      #     sudo apt-get update
-      #     sudo apt-get install texlive-full
-      #     sudo apt-get install texlive-lang-english
-
-      # - name: Cache TeXLive
-      #   uses: awalsh128/cache-apt-pkgs-action@v1
-      #   with:
-      #     packages: texlive-full texlive-lang-english
-
       - name: Install TexLive-Full
         uses: teatimeguest/setup-texlive-action@v3
         with:
@@ -39,10 +28,12 @@ jobs:
       - name: Build Draft
         run: |
           make draft
-          cp my_paper.pdf my_paper_draft.pdf
+          cp my_paper.pdf draft.pdf
 
       - name: Build Final
-        run: make
+        run: |
+          make
+          cp my_paper.pdf final.pdf
 
       - name: Find and Zip Log Files
         if: failure()
@@ -61,5 +52,5 @@ jobs:
         with:
           name: compiled
           path: |
-            my_paper.pdf
-            my_paper_draft.pdf
+            draft.pdf
+            final.pdf
