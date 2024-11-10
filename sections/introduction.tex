@@ -81,40 +81,43 @@
 \Blinddocument
 
 \begin{figure*}
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-                colormap/PuOr,
-            ]
-            \addplot3+ [
-                mesh,
-                scatter,
-                samples=10,
-                domain=0:1,
-            ] {x*(1-x)*y*(1-y)};
-        \end{axis}
-    \end{tikzpicture}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                    title={$x \exp(-x^2-y^2)$},
+                    domain=-2:2,
+                    colormap/viridis,
+                ]
+                \addplot3 [
+                    contour lua={
+                            contour dir=y,
+                            labels=false,
+                            number=60,
+                        },
+                    thick,
+                ] {exp(-x^2-y^2)*x};
+            \end{axis}
+        \end{tikzpicture}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                    colormap/PuOr,
+                ]
+                \addplot3+ [
+                    mesh,
+                    scatter,
+                    samples=10,
+                    domain=0:1,
+                ] {x*(1-x)*y*(1-y)};
+            \end{axis}
+        \end{tikzpicture}
+    \end{subfigure}
 \end{figure*}
 
-\begin{figure*}
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-                title={$x \exp(-x^2-y^2)$},
-                domain=-2:2,
-                colormap/viridis,
-            ]
-            \addplot3 [
-                contour lua={
-                        contour dir=y,
-                        labels=false,
-                        number=60,
-                    },
-                thick,
-            ] {exp(-x^2-y^2)*x};
-        \end{axis}
-    \end{tikzpicture}
-\end{figure*}
 
 \begin{figure*}
     \centering

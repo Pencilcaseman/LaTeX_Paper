@@ -123,3 +123,12 @@
         \vskip0.5em}%
 }
 
+\NewDocumentCommand{\pgfPlotIfNotNaN}{ m }
+{%
+    \pgfmathfloatifflags{#1}{3}
+    {}% NaN
+    {\pgfmathprintnumber{#1}}% not NaN
+}
+
+% \newcommand{\ztotpagesminusone}{\number\numexpr\getpagerefnumber{LastPage}\relax}
+\newcommand{\ztotpagesminusone}{\getpagerefnumber{LastPage}}

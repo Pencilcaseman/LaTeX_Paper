@@ -1,11 +1,12 @@
-% Text and Font
 \usepackage[T1]{fontenc}
-\usepackage{stix}
 \usepackage[english]{babel}
-\usepackage{yfonts}
-\usepackage{relsize}
-\usepackage{fontawesome}
-\usepackage{textcomp}
+
+% Code Listings
+\usepackage{listings}
+\usepackage{lstautogobble}  % Fix relative indenting
+\usepackage{color}          % Code coloring
+\usepackage[table]{xcolor}  % Additional color support
+\usepackage{zi4}            % Nice font for code
 
 % Mathematics Packages
 \usepackage{amsmath}
@@ -18,15 +19,8 @@
 \usepackage{pgfplots}
 
 % Subfigures and Figures
-\usepackage{subfig}
+\usepackage{subcaption}
 \usepackage{graphicx}
-
-% Code Listings
-\usepackage{listings}
-\usepackage{lstautogobble}  % Fix relative indenting
-\usepackage{color}          % Code coloring
-\usepackage{xcolor}         % Additional color support
-\usepackage{zi4}            % Nice font for code
 
 % Algorithms
 \usepackage{algorithmicx}
@@ -57,15 +51,24 @@
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{notoccite}
 
+% Text and Font
+\usepackage{yfonts}
+\usepackage{relsize}
+\usepackage{fontawesome}
+\usepackage{textcomp}
+
 % Miscellaneous
 \usepackage{siunitx}
 \usepackage{adjustbox}
 \usepackage{glossaries}
+\usepackage{placeins}
 \usepackage{forest}
 \usepackage{tcolorbox} % For colored boxes and enhanced formatting
 \usepackage{mdframed} % Also for nice boxes
 \usepackage{zref-totpages} % For referencing total pages
 \usepackage{etoolbox} % For programming enhancements
+\usepackage{lastpage} % For getting the last page number
+\usepackage{balance} % For balancing columns
 
 % Dummy Text
 \usepackage{lipsum}

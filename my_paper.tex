@@ -1,13 +1,13 @@
-% \documentclass[11pt, a4paper, twocolumn]{extarticle}
-\documentclass[11pt, a4paper, twocolumn]{article}
+\documentclass[11pt, a4paper, twocolumn]{extarticle}
+% \documentclass[11pt, a4paper, twocolumn]{article}
 
 \input{packages}
 \input{config}
 \input{preamble}
 
 \ifdraft{
-    \linenumbers
     \usepackage{draftwatermark}
+    \linenumbers
     \SetWatermarkText{DRAFT}
     \SetWatermarkScale{1}
     \linenumbers
@@ -31,8 +31,9 @@
 }
 
 % Page numbers
-\fancyhf[rh]{Page \thepage{} of \ztotpages}
+\fancyhf[rh]{Page \thepage{} of \ztotpagesminusone}
 
+\raggedbottom % Don't require pages to be full
 \input{main}
 
 \end{document}

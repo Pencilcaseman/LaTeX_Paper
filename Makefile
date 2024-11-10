@@ -83,6 +83,7 @@ distclean:: clean
 	$(RM) $(TARGET).pdf
 	$(RM) $(TARGET).figlist
 	$(RM) $(TARGET).makefile
+	$(RM) *.fls
 	$(RM) *.auxlock
 	if [ -d cache ]; then $(MAKE) -C cache clean; fi
 	if [ -d tikz_figures ]; then $(RM) -r tikz_figures; fi

@@ -1,11 +1,14 @@
-\title{An Impressive Title}
-\subtitle{An Even More Impressive Subtitle}
+\title{A Fantastic Title}
+\subtitle{{\vspace{-1em}\huge \color{myDarkBlue}\textbf{Title Part
+                2}}\\\vspace{1.5em}A Riveting Subtitle}
 
 \author[1]{Author One}
 \author[2]{Author Two}
+\author[2, $\dagger$]{\\Author Three}
 
-\affil[1]{Department of Something, University of Somewhere}
-\affil[2]{Department of Else, Institute of Elsewhere}
+\affil[1]{The First Institute}
+\affil[2]{The Second Institute}
+\affil[$\dagger$]{A Fantastic Affiliation}
 
 % Comment out hte line below to remove the author from each page
 \newcommand{\compactAuthor}{My Group of Authors}
@@ -13,13 +16,15 @@
 \date{\today}
 
 \onecolumn
+
 \maketitle
 
+% See https://tex.stackexchange.com/questions/1736/removing-page-number-for-title-page
+\thispagestyle{empty}
 \vfill
 \hrule
 
 \begin{abstract}
-    \noindent
     \lipsum[1]
 \end{abstract}
 
@@ -27,3 +32,5 @@
 \vfill
 
 \twocolumn
+
+\setcounter{page}{1}
