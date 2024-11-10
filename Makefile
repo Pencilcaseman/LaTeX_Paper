@@ -1,3 +1,6 @@
+# Copyright Toby Davis
+# See LICENSE for details
+
 all: build
 
 # Environment variables
@@ -76,6 +79,9 @@ clean::
 	$(RM) *.unkwrd Tutorial/*.unkwrd
 	$(RM) *.chktex Tutorial/*.chktex
 	$(RM) spellcheck-report.txt
+	$(RM) *contour*.dat
+	$(RM) *contour*.lua
+	$(RM) *contour*.table
 
 # Remove pretty much everything -- especially tikz externalize images
 distclean:: clean
