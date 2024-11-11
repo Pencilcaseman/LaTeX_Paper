@@ -25,6 +25,8 @@ jobs:
 
       - name: Install Tectonic
         uses: wtfjoke/setup-tectonic@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # Tikz externalize does not work with cached TexLive
       - name: Set No-Externalize Flag
