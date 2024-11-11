@@ -38,7 +38,7 @@ build:  build-stage0
 build-target: $(TARGET).pdf
 
 build-stage0:
-	if [ ! -d tikz_figures ]; then mkdir tikz_figures; fi
+	if [ ! -d tikz_figures ] && [ ! -f no_externalize.flag ]; then mkdir tikz_figures; fi
 
 deps-stage1: $(SOURCES)
 

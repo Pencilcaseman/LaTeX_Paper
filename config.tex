@@ -125,7 +125,12 @@
 % Column separation default
 \setlength{\columnsep}{0.65cm}
 
-\tikzexternalize[prefix=tikz_figures/]
+% Only externalize if we are told to
+\IfFileExists{no_externalize.flag}{
+    % Do nothing
+}{
+    \tikzexternalize[prefix=tikz_figures/]
+}
 
 % Custom SI units
 \DeclareSIUnit{\flop}{flop}
