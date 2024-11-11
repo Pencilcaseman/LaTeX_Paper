@@ -14,10 +14,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install GnuPlot
+        run: |
+          sudo apt-get install gnuplot
+
       - name: Install TexLive-Full
         uses: teatimeguest/setup-texlive-action@v3
         with:
           packages: scheme-full
+
+      - name: Install Tectonic
+        uses: wtfjoke/setup-tectonic@v3
 
       # Tikz externalize does not work with cached TexLive
       - name: Set No-Externalize Flag
@@ -39,9 +46,6 @@ jobs:
         run: |
           make draft
           cp my_paper.pdf draft.pdf
-
-      - name: Install Tectonic
-        uses: wtfjoke/setup-tectonic@v3
 
       - name: Build Tectonic
         run: |
