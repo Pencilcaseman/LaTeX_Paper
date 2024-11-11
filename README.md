@@ -20,7 +20,8 @@ have an up-to-date version of the document.
 >install dependncies for you, but does not support externalization. The build
 >times will likely be a bit longer.
 >
-> To use Tectonic, run `make tectonic` instead of `make`.
+> To use Tectonic, run `make tectonic` instead of `make`. To build a draft
+>version of the document, run `make tectonic-draft`.
 
 ## Dependencies
 

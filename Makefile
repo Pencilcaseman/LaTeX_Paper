@@ -79,6 +79,11 @@ tectonic:
 		rm no_externalize.flag; \
 	fi
 
+tectonic-draft:
+	touch draft.flag
+	$(MAKE) tectonic
+	$(RM) draft.flag
+
 # for switching back from draft to normal builds
 draft.flag:
 	$(RM) $(TARGET).pdf

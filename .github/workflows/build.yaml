@@ -40,6 +40,19 @@ jobs:
           make draft
           cp my_paper.pdf draft.pdf
 
+      - name: Install Tectonic
+        uses: wtfjoke/setup-tectonic@v3
+
+      - name: Build Tectonic
+        run: |
+          make tectonic
+          cp my_paper.pdf tectonic-final.pdf
+
+      - name: Build Draft Tectonic
+        run: |
+          make tectonic-draft
+          cp my_paper.pdf tectonic-draft.pdf
+
       - name: Find and Zip Log Files
         if: failure()
         run: |
@@ -58,4 +71,6 @@ jobs:
           name: compiled
           path: |
             draft.pdf
+            tectonic-draft.pdf
             final.pdf
+            tectonic-final.pdf
