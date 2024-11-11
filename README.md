@@ -15,6 +15,13 @@ have an up-to-date version of the document.
 >To do this, simply create a file named `no_externalize.flag` in the root of the
 >repository (e.g. `touch no_externalize.flag`).
 
+>[!tip] Tectonic If you don't want to install TexLive, you can use
+>[Tectonic](https://github.com/tectonic-typesetting/tectonic) instead. This will
+>install dependncies for you, but does not support externalization. The build
+>times will likely be a bit longer.
+>
+> To use Tectonic, run `make tectonic` instead of `make`.
+
 ## Dependencies
 
 I'm not 100% sure which packages you need to build this template, so an
