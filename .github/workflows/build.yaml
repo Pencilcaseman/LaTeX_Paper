@@ -21,26 +21,44 @@ jobs:
       #     sudo apt-get install texlive-full
       #     sudo apt-get install texlive-lang-english
 
-      - name: Install TexLive-Full
-        uses: teatimeguest/setup-texlive-action@v3
-        with:
-          packages: scheme-full
+      # - name: Install TexLive-Full
+      #   uses: teatimeguest/setup-texlive-action@v3
+      #   with:
+      #     packages: scheme-full
 
-      - name: Check Environment Variables
-        run: |
-          echo "TEXHOME=$TEXHOME"
-          echo "PATH=$PATH"
-          ls -l
+      # - name: Check Environment Variables
+      #   run: |
+      #     echo "TEXHOME=$TEXHOME"
+      #     echo "PATH=$PATH"
+      #     ls -l
+
+      # - name: Build Draft
+      #   run: |
+      #     make draft
+      #     cp my_paper.pdf draft.pdf
 
       - name: Build Draft
-        run: |
-          make draft
-          cp my_paper.pdf draft.pdf
+        uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: |
+            apk add make
+            make draft
+            cp my_paper.pdf draft.pdf
+
+      # - name: Build Final
+      #   run: |
+      #     make
+      #     cp my_paper.pdf final.pdf
 
       - name: Build Final
-        run: |
-          make
-          cp my_paper.pdf final.pdf
+        uses: xu-cheng/texlive-action@v2
+        with:
+          scheme: full
+          run: |
+            apk add make
+            make
+            cp my_paper.pdf final.pdf
 
       - name: Find and Zip Log Files
         if: failure()
