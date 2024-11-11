@@ -14,107 +14,107 @@
 % Provide \code{something useful} for inline code
 \newcommand{\code}{\texttt}
 
-% % Red box
-% \newtcolorbox{coloredboxImpl}[2]{%
-%     colback=#1!5!white,
-%     colframe=#1,
-%     sharp corners,
-%     title={#2},
-% }
-%
-% \newenvironment{coloredbox}[2]{
-%     \nolinenumbers
-%     \begin{coloredboxImpl}{#1}{#2}
-%         }{%
-%     \end{coloredboxImpl}
-%     \ifdraft{\linenumbers}
-% }
-%
-% % Grey box
-% \newtcolorbox{greyboxImpl}[1]{%
-%     colback=black!5!white,
-%     colframe=white!25!black,
-%     sharp corners,
-%     title={#1},
-% }
-%
-% \newenvironment{greybox}[1]{
-%     \nolinenumbers
-%     \begin{greyboxImpl}{#1}
-%         }{%
-%     \end{greyboxImpl}
-%
-%     \ifdraft{\linenumbers}
-% }
-%
-% % Red box
-% \newtcolorbox{redboxImpl}[1]{%
-%     colback=myRed!5!white,
-%     colframe=myDarkRed,
-%     sharp corners,
-%     title={#1},
-% }
-%
-% \newenvironment{redbox}[1]{
-%     \nolinenumbers
-%     \begin{redboxImpl}{#1}
-%         }{%
-%     \end{redboxImpl}
-%     \ifdraft{\linenumbers}
-% }
-%
-% % Blue box
-% \newtcolorbox{blueboxImpl}[1]{%
-%     colback=myBlue!5!white,
-%     colframe=myDarkBlue,
-%     sharp corners,
-%     title={#1},
-% }
-%
-% \newenvironment{bluebox}[1]{
-%     \nolinenumbers
-%     \begin{blueboxImpl}{#1}
-%         }{%
-%     \end{blueboxImpl}
-%     \ifdraft{\linenumbers}
-% }
-%
-% % Green box
-% \newtcolorbox{greenboxImpl}[1]{%
-%     colback=myGreen!5!white,
-%     colframe=myDarkGreen,
-%     sharp corners,
-%     title={#1},
-% }
-%
-% \newenvironment{greenbox}[1]{
-%     \nolinenumbers
-%     \begin{greenboxImpl}{#1}
-%         }{%
-%     \end{greenboxImpl}
-%     \ifdraft{\linenumbers}
-% }
-%
-% % Code box
-% \newtcolorbox{codeboxImpl}[1]{%
-%     colback=blue!3!white,
-%     colframe=white!50!black,
-%     sharp corners,
-%     title={\faCode \quad #1},
-% }
-%
-% \newenvironment{codebox}[1]{
-%     \nolinenumbers
-%     \begin{codeboxImpl}{#1}
-%         }{%
-%     \end{codeboxImpl}
-%     \ifdraft{\linenumbers}
-% }
+% Red box
+\newtcolorbox{coloredboxImpl}[2]{%
+    colback=#1!5!white,
+    colframe=#1,
+    sharp corners,
+    title={#2},
+}
 
-% \newmdtheoremenv{theorem}{Theorem}
-% \newmdtheoremenv{lemma}{Lemma}
-% \newmdtheoremenv{corollary}{Corollary}
-% \newmdtheoremenv{proposition}{Proposition}
+\newenvironment{coloredbox}[2]{
+    \nolinenumbers
+    \begin{coloredboxImpl}{#1}{#2}
+        }{%
+    \end{coloredboxImpl}
+    \ifdraft{\linenumbers}
+}
+
+% Grey box
+\newtcolorbox{greyboxImpl}[1]{%
+    colback=black!5!white,
+    colframe=white!25!black,
+    sharp corners,
+    title={#1},
+}
+
+\newenvironment{greybox}[1]{
+    \nolinenumbers
+    \begin{greyboxImpl}{#1}
+        }{%
+    \end{greyboxImpl}
+
+    \ifdraft{\linenumbers}
+}
+
+% Red box
+\newtcolorbox{redboxImpl}[1]{%
+    colback=myRed!5!white,
+    colframe=myDarkRed,
+    sharp corners,
+    title={#1},
+}
+
+\newenvironment{redbox}[1]{
+    \nolinenumbers
+    \begin{redboxImpl}{#1}
+        }{%
+    \end{redboxImpl}
+    \ifdraft{\linenumbers}
+}
+
+% Blue box
+\newtcolorbox{blueboxImpl}[1]{%
+    colback=myBlue!5!white,
+    colframe=myDarkBlue,
+    sharp corners,
+    title={#1},
+}
+
+\newenvironment{bluebox}[1]{
+    \nolinenumbers
+    \begin{blueboxImpl}{#1}
+        }{%
+    \end{blueboxImpl}
+    \ifdraft{\linenumbers}
+}
+
+% Green box
+\newtcolorbox{greenboxImpl}[1]{%
+    colback=myGreen!5!white,
+    colframe=myDarkGreen,
+    sharp corners,
+    title={#1},
+}
+
+\newenvironment{greenbox}[1]{
+    \nolinenumbers
+    \begin{greenboxImpl}{#1}
+        }{%
+    \end{greenboxImpl}
+    \ifdraft{\linenumbers}
+}
+
+% Code box
+\newtcolorbox{codeboxImpl}[1]{%
+    colback=blue!3!white,
+    colframe=white!50!black,
+    sharp corners,
+    title={\faCode \quad #1},
+}
+
+\newenvironment{codebox}[1]{
+    \nolinenumbers
+    \begin{codeboxImpl}{#1}
+        }{%
+    \end{codeboxImpl}
+    \ifdraft{\linenumbers}
+}
+
+\newmdtheoremenv{theorem}{Theorem}
+\newmdtheoremenv{lemma}{Lemma}
+\newmdtheoremenv{corollary}{Corollary}
+\newmdtheoremenv{proposition}{Proposition}
 
 % Define a nice C++ typesetting
 \newcommand\CPP{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}}}
