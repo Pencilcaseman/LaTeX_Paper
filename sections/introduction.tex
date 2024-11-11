@@ -58,26 +58,6 @@
     \end{tikzpicture}
 \end{figure}
 
-\begin{figure}[ht]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-                title={$x \exp(-x^2-y^2)$},
-                xlabel=$x$, ylabel=$y$,
-                % small,
-            ]
-            \addplot3[
-                surf,
-                domain=-2:2,
-                % domain y=-1:1,
-                colormap/viridis,
-                samples=100,
-            ]
-            {exp(-x^2-y^2)*x};
-        \end{axis}
-    \end{tikzpicture}
-\end{figure}
-
 \Blinddocument
 
 \begin{figure*}
@@ -90,7 +70,7 @@
                     colormap/viridis,
                 ]
                 \addplot3 [
-                    contour lua={
+                    contour gnuplot={
                             contour dir=y,
                             labels=false,
                             number=60,

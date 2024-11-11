@@ -14,6 +14,8 @@ LATEXMK_FORCE_REBUILD   ?=
 LATEXMK_CLEAN            = $(LATEXMK) -c
 LATEXMK_DISTCLEAN        = $(LATEXMK) -C
 
+HAS_TECTONIC = $(shell which tectonic > /dev/null && echo true || echo false)
+
 GIT    ?= git
 GITDIR := $(shell $(GIT) rev-parse --git-dir)
 
@@ -62,6 +64,14 @@ draft:
 	touch draft.flag
 	$(MAKE) $(if $(shell grep -s draft.flag $(TARGET).fdb_latexmk),,LATEXMK_FORCE_REBUILD=yes)
 	$(RM) draft.flag
+
+tectonic:
+	if [ "$(HAS_TECTONIC)" = "false" ]; then \
+		echo "tectonic is not installed, aborting"; \
+		exit 1; \
+	fi
+	touch no_externalize.flag
+	tectonic $(SOURCES)
 
 # for switching back from draft to normal builds
 draft.flag:
