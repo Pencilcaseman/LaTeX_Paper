@@ -7,7 +7,7 @@ Take a look at the GitHub Actions page for automatically built documents. They
 run automatically when you push changes to the repository, so you can always
 have an up-to-date version of the document.
 
->[!hint] Disable TikZ Externalization
+>[!HINT]
 >TikZ externalization is enabled by default, but can cause build issues --
 >especially with portable LaTeX installations. If your build is failing for some
 >reason, it might be worth disabling TikZ externalization.
@@ -15,7 +15,8 @@ have an up-to-date version of the document.
 >To do this, simply create a file named `no_externalize.flag` in the root of the
 >repository (e.g. `touch no_externalize.flag`).
 
->[!tip] Tectonic If you don't want to install TexLive, you can use
+>[!HINT]
+> If you don't want to install TexLive, you can use
 >[Tectonic](https://github.com/tectonic-typesetting/tectonic) instead. This will
 >install dependncies for you, but does not support externalization. The build
 >times will likely be a bit longer.
