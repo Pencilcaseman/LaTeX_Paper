@@ -14,17 +14,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install TeXLive
-        run: |
-          sudo apt-get update
-          sudo apt-get upgrade
-          sudo apt-get install texlive-full
-          sudo apt-get install texlive-lang-english
+      # - name: Install TeXLive
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get upgrade
+      #     sudo apt-get install texlive-full
+      #     sudo apt-get install texlive-lang-english
 
-      # - name: Install TexLive-Full
-      #   uses: teatimeguest/setup-texlive-action@v3
-      #   with:
-      #     packages: scheme-full
+      - name: Install TexLive-Full
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          packages: scheme-full
 
       - name: Check Environment Variables
         run: |
