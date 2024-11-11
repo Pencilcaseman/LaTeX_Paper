@@ -342,6 +342,7 @@
 /*.dep
 
 /draft.flag
+/no_externalize.flag
 /spellcheck-report.txt
 *.tex.unkwrd
 *.tex.chktex
