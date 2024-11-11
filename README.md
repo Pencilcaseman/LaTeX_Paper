@@ -24,6 +24,11 @@ have an up-to-date version of the document.
 > To use Tectonic, run `make tectonic` instead of `make`. To build a draft
 >version of the document, run `make tectonic-draft`.
 
+To build the document on Windows, I've provided a `build.bat` script. This
+requires [Tectonic](https://github.com/tectonic-typesetting/tectonic) to be
+installed and available in your `PATH`. To build the document, run `build.bat`.
+To build a draft version, run `build.bat draft`.
+
 ## Dependencies
 
 I'm not 100% sure which packages you need to build this template, so an
