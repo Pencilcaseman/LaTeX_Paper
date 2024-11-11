@@ -14,7 +14,8 @@ LATEXMK_FORCE_REBUILD   ?=
 LATEXMK_CLEAN            = $(LATEXMK) -c
 LATEXMK_DISTCLEAN        = $(LATEXMK) -C
 
-HAS_TECTONIC = $(shell which tectonic > /dev/null && echo true || echo false)
+HAS_TECTONIC    = $(shell which tectonic > /dev/null && echo true || echo false)
+TECTONIC_BUILD  = tectonic -X compile -Z shell-escape
 
 GIT    ?= git
 GITDIR := $(shell $(GIT) rev-parse --git-dir)
@@ -70,8 +71,13 @@ tectonic:
 		echo "tectonic is not installed, aborting"; \
 		exit 1; \
 	fi
-	touch no_externalize.flag
-	tectonic $(SOURCES)
+	if [ -f no_externalize.flag ]; then \
+		$(TECTONIC_BUILD) $(SOURCES); \
+	else \
+		touch no_externalize.flag; \
+		$(TECTONIC_BUILD) $(SOURCES); \
+		rm no_externalize.flag; \
+	fi
 
 # for switching back from draft to normal builds
 draft.flag:
@@ -101,6 +107,7 @@ distclean:: clean
 	$(RM) $(TARGET).makefile
 	$(RM) *.fls
 	$(RM) *.auxlock
+	$(RM) *.script
 	if [ -d cache ]; then $(MAKE) -C cache clean; fi
 	if [ -d tikz_figures ]; then $(RM) -r tikz_figures; fi
 
