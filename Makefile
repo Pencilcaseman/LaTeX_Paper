@@ -15,7 +15,7 @@ LATEXMK_CLEAN            = $(LATEXMK) -c
 LATEXMK_DISTCLEAN        = $(LATEXMK) -C
 
 HAS_TECTONIC    = $(shell which tectonic > /dev/null && echo true || echo false)
-TECTONIC_BUILD  = tectonic -X compile -Z shell-escape
+TECTONIC_BUILD  = tectonic -X compile
 
 GIT    ?= git
 GITDIR := $(shell $(GIT) rev-parse --git-dir)

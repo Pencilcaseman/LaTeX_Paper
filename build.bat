@@ -38,7 +38,7 @@ if "%~1"=="" (
 	)
 )
 
-tectonic -Z shell-escape -X compile my_paper.tex
+tectonic -X compile my_paper.tex
 
 if %draftFlag%==1 (
 	del draft.flag
