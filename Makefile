@@ -20,8 +20,12 @@ TECTONIC_BUILD  = tectonic -X compile
 GIT    ?= git
 GITDIR := $(shell $(GIT) rev-parse --git-dir)
 
-# defines SOURCE_BASENAME
-BASE_FILE = my_paper
+include project_name
+include .oldname
+
+# Defines SOURCE_BASENAME
+# BASE_FILE = toby_davis_cv
+BASE_FILE = $(PROJECT_NAME)
 
 TARGET   = $(BASE_FILE)
 SOURCES  = $(TARGET:=.tex)
@@ -87,6 +91,28 @@ tectonic-draft:
 # for switching back from draft to normal builds
 draft.flag:
 	$(RM) $(TARGET).pdf
+
+init:
+	# Rename the project to distclean
+	
+	echo "# This is the name of your project and determines what the output PDF" > project_name
+	echo "# will be called. Run 'make init' to configure this." >> project_name
+	echo "PROJECT_NAME = $(OLD_PROJECT_NAME)" >> project_name
+	
+	$(MAKE) distclean
+
+	echo "# This is the name of your project and determines what the output PDF" > project_name
+	echo "# will be called. Run 'make init' to configure this." >> project_name
+	echo "PROJECT_NAME = $(PROJECT_NAME)" >> project_name
+
+	mv $(OLD_PROJECT_NAME).tex $(PROJECT_NAME).tex
+
+	# Update the old name
+	echo "# DO NOT CHANGE THIS. THIS IS REQUIRED FOR 'make init' TO WORK" > .oldname
+	echo "OLD_PROJECT_NAME = $(PROJECT_NAME)" >> .oldname
+
+	$(MAKE)
+
 
 ### Clean target ###
 # Remove generated files, but not everything
