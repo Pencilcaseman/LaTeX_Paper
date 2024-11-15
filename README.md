@@ -29,6 +29,15 @@ requires [Tectonic](https://github.com/tectonic-typesetting/tectonic) to be
 installed and available in your `PATH`. To build the document, run `build.bat`.
 To build a draft version, run `build.bat draft`.
 
+## Getting Started
+
+To get started, press "Use this template" on the GitHub page for this
+repository. This will create a new repository in your account with the same code
+as this one.
+
+Edit `project_name` to set the name of your project, and run `make init` to
+configure everything.
+
 ## Dependencies
 
 I'm not 100% sure which packages you need to build this template, so an
