@@ -1,135 +1,116 @@
+% -----------------------------------------------------------------------------
 % Copyright Toby Davis
 % See LICENSE for details
+% -----------------------------------------------------------------------------
 
+% === Encoding and Language ===
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
 
-% Code Listings
-\usepackage{listings}
-\usepackage{lstautogobble}  % Fix relative indenting
-\usepackage{color}          % Code coloring
-\usepackage[table]{xcolor}  % Additional color support
-\usepackage{zi4}            % Nice font for code
-
-% Mathematics Packages
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{physics}
-
-% Graphics and Plotting
-\usepackage{tikz}
-\usepackage{tikz-3dplot}
-\usepackage{pgfplots}
-
-% Subfigures and Figures
-\usepackage{subcaption}
-\usepackage{graphicx}
-
-% Algorithms
-\usepackage{algorithmicx}
-\usepackage{algpseudocode}
-
-% Tables
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{tablefootnote}
-
-% Two columns
-\usepackage{extsizes}
-
-% Document Layout
+% === Document Layout ===
 \usepackage[left=1.5cm, right=1.5cm, top=2.5cm, bottom=1.5cm, twocolumn]{geometry}
+\usepackage{extsizes}
 \usepackage{multicol}
 \usepackage{fancyhdr}
 \usepackage{flushend}
-\usepackage{authoraftertitle} % Put author after title
-\usepackage{titling} % Custom title formatting
-\usepackage{titlesec} % Custom section formatting
-\usepackage{float}
-\usepackage{placeins}
+\usepackage{authoraftertitle}
+\usepackage{titling}
+\usepackage{titlesec}
 \usepackage{enumitem}
+\usepackage{balance}
 
-% References and Citations
-\usepackage{hyperref}
-\usepackage[numbers,sort&compress]{natbib}
-\usepackage{notoccite}
-
-% Text and Font
+% === Text and Font ===
 \usepackage{yfonts}
 \usepackage{relsize}
 \usepackage{fontawesome}
 \usepackage{textcomp}
 
-% Miscellaneous
+% === Mathematics ===
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+
+% === Color ===
+\usepackage[table]{xcolor}
+
+% === Code Listings ===
+\usepackage{listings}
+\usepackage{lstautogobble}   % Fix relative indenting
+\usepackage{zi4}             % Nice font for code
+
+% === Logic and Counters ===
+\usepackage{ifthen}
+\usepackage{refcount}
+\usepackage{fmtcount}
+\usepackage{intcalc}
+
+% === Graphics and Plotting ===
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\usepgfplotslibrary{
+    groupplots,
+    dateplot,
+    statistics,
+    external,
+    colormaps,
+    ternary,
+    patchplots,
+    polar,
+    fillbetween,
+    units,
+    colorbrewer
+}
+
+% TikZ Libraries
+\usetikzlibrary{
+    shapes, decorations, calc, arrows, arrows.meta, 3d, fit,
+    backgrounds, decorations.text, matrix, positioning,
+    shapes.symbols, decorations.pathreplacing, calligraphy,
+    patterns, intersections, mindmap, graphs, trees, plotmarks,
+    shadows, angles, quotes, spy, through, shapes.geometric,
+    shapes.multipart, shapes.arrows, decorations.markings,
+    external, math
+}
+
+% === Tables ===
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tablefootnote}
+
+% === Figures and Subfigures ===
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{float}
+
+% === Algorithms ===
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+% === Box and Framing Packages ===
+\usepackage[most]{tcolorbox} % For colored boxes and enhanced formatting
+\usepackage{mdframed}  % For additional box options
+
+% === References and Citations ===
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{notoccite}
+\usepackage{hyperref}
+
+% === Line Numbers ===
+\usepackage[switch]{lineno}
+
+% === Miscellaneous ===
 \usepackage{siunitx}
 \usepackage{adjustbox}
 \usepackage{glossaries}
-\usepackage{placeins}
-\usepackage{forest}
-\usepackage{tcolorbox} % For colored boxes and enhanced formatting
-\usepackage{mdframed} % Also for nice boxes
-\usepackage{zref-totpages} % For referencing total pages
-\usepackage{etoolbox} % For programming enhancements
-\usepackage{lastpage} % For getting the last page number
-\usepackage{balance} % For balancing columns
+\usepackage{lastpage}
+\usepackage{zref-totpages}
+\usepackage{etoolbox}
 
-% Dummy Text
+% === Dummy Text ===
 \usepackage{lipsum}
 \usepackage{blindtext}
 
-% Line numbers down the side of the page
-\usepackage[switch]{lineno}
-
-% Not sure why this needs to be last, but it breaks otherwise...
-\usepackage{authblk} % Better author formatting
-
-% TikZ and PGF Libraries
-\usetikzlibrary{
-    shapes,                       % Basic shapes
-    decorations,                  % Decorations like braces and arrows
-    calc,                         % Calculations with TikZ
-    arrows,                       % Arrows and arrow tips
-    arrows.meta,                  % More arrow tips
-    3d,                           % 3D capabilities
-    fit,                          % Fit nodes into a specified area
-    backgrounds,                  % Background layers
-    decorations.text,             % Text along paths
-    matrix,                       % Matrix structures
-    positioning,                  % Easy positioning of nodes
-    shapes.symbols,               % Additional shapes like stars and clouds
-    decorations.pathreplacing,    % Replacing parts of paths
-    calligraphy,                  % Calligraphic styles
-    patterns,                     % Fill patterns
-    intersections,                % Intersection of paths
-    mindmap,                      % Mind maps
-    graphs,                       % Graph drawing
-    trees,                        % Tree structures
-    plotmarks,                    % Plot marks
-    shadows,                      % Shadows for added depth
-    angles,                       % Angles and labels
-    quotes,                       % Quotes and annotations
-    spy,                          % Zoom in on parts of a picture
-    through,                      % Drawing through points
-    shapes.geometric,             % Geometric shapes
-    shapes.multipart,             % Multipart shapes
-    shapes.arrows,                % Arrow shapes
-    decorations.markings,         % Custom path markings
-    external,                     % Externalization of tikz pictures
-    math                          % Mathematical things
-}
-
-% Externalize tikz and pgf diagrams
-\usepgfplotslibrary{
-    groupplots,    % Multiple subplots in a grid.
-    dateplot,      % Time series data plotting.
-    statistics,    % Statistical plots like box plots.
-    external,      % Compile plots separately.
-    colormaps,     % Predefined colormaps.
-    ternary,       % Ternary plots.
-    patchplots,    % Patch plots for FEM.
-    polar,         % Polar coordinate plots.
-    fillbetween,   % Fill area between curves.
-    units,         % Manage units in plots.
-    colorbrewer,   % Color maps
-}
-
+% === Must Be Last ===
+\usepackage{authblk}  % Better author formatting

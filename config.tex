@@ -1,51 +1,64 @@
-% Copyright Toby Davis
+% -----------------------------------------------------------------------------
+% (c) Toby Davis
 % See LICENSE for details
+% -----------------------------------------------------------------------------
 
 \pgfplotsset{compat=1.18}
 
-% Configure URLs and hyperlinks
+% For debugging, full error contexts:
+\errorcontextlines=\maxdimen
+
+% -- Hyperref Configuration --
 \hypersetup{
-    colorlinks,
-    linkcolor={red!50!black},
-    citecolor={blue!50!black},
-    urlcolor={blue!80!black}
+    colorlinks = true,
+    linkcolor  = {red!50!black},
+    citecolor  = {blue!50!black},
+    urlcolor   = {blue!80!black}
 }
 
-% Create a pleasant code block style
+% -- Define a "pleasant" code-block style --
 \lstdefinestyle{paperStyle1}{
-    backgroundcolor=\color{backcolour},
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\footnotesize,
-    breakatwhitespace=false,
-    breaklines=true,
-    captionpos=b,
-    keepspaces=true,
-    numbers=left,
-    numbersep=5pt,
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    tabsize=2
+    backgroundcolor = \color{backcolour},
+    commentstyle    = \color{codegreen},
+    keywordstyle    = \color{magenta},
+    numberstyle     = \tiny\color{codegray},
+    stringstyle     = \color{codepurple},
+    basicstyle      = \ttfamily\footnotesize,
+    breakatwhitespace = false,
+    breaklines       = true,
+    captionpos       = b,
+    keepspaces       = true,
+    numbers          = left,
+    numbersep        = 5pt,
+    showspaces       = false,
+    showstringspaces = false,
+    showtabs         = false,
+    tabsize          = 2
 }
 
 % Automatically disable line numbers in lstlisting environments
 \AtBeginEnvironment{lstlisting}{\nolinenumbers}
 
-% ===============================================================================
-% From
-% https://tex.stackexchange.com/questions/94902/how-can-i-use-line-numbers-with-leading-zeros
-% Pads codeblock line numbers with zeros and aligns them correctly
-
-\errorcontextlines=\maxdimen
+% =============================================================================
+%  Zero-padded line numbers in code listings
+%  (from https://tex.stackexchange.com/questions/94902)
+% =============================================================================
 
 \newcommand*{\boxeddecimalnum}[1]{\makebox[3em][r]{\decimalnum{#1}}}
-\usepackage{refcount}
-\usepackage{fmtcount}
-\usepackage{intcalc}
+\newcounter{lstuniquenumber}
 
+\makeatletter
+\lst@AddToHook{Init}{%
+    \stepcounter{lstuniquenumber}%
+    \edef\lastlineincurrentlisting{%
+        \intcalcDec{\getrefnumber{lastlineinlisting\thelstuniquenumber}}%
+    }%
+    \padzeroes[\expandafter\getnumdigits\expandafter{\lastlineincurrentlisting}]%
+}
+\lst@AddToHook{DeInit}{\label{lastlineinlisting\thelstuniquenumber}}
+\makeatother
+
+\def\quark{\quark}
 \def\getnumdigitsaux #1{%
     \ifx#1\quark
         \expandafter\relax
@@ -53,20 +66,13 @@
         +1\expandafter\getnumdigitsaux
     \fi
 }
-
-\def\quark{\quark}
 \newcommand\getnumdigits[1]{%
     \the\numexpr\getnumdigitsaux #1\quark
 }
 
-\newcounter{lstuniquenumber}
-\makeatletter
-\lst@AddToHook{Init}{\stepcounter{lstuniquenumber}\edef\lastlineincurrentlisting{\intcalcDec{\getrefnumber{lastlineinlisting\thelstuniquenumber}}}\padzeroes[\expandafter\getnumdigits\expandafter{\lastlineincurrentlisting}]} % at the start of each listing, count the listing, and try to restore the line number saved in the previous run
-\lst@AddToHook{DeInit}{\label{lastlineinlisting\thelstuniquenumber}} % at the end of each listing, save one past the last line number
-\makeatother
-
-% ==============================================================================
-
+% =============================================================================
+%  Custom Colors
+% =============================================================================
 \definecolor{myRed}{rgb}{0.96, 0.35, 0.40}
 \definecolor{myGreen}{rgb}{0.65, 0.89, 0.18}
 \definecolor{myBlue}{rgb}{0.25, 0.65, 0.99}
@@ -77,27 +83,39 @@
 \definecolor{myDarkGreen}{rgb}{0.00, 0.41, 0.05}
 \definecolor{myDarkBlue}{rgb}{0.03, 0.11, 0.44}
 
-% Section Formatting
-\titleformat{\section}{\color{myDarkBlue}\normalfont\Large\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\color{myDarkBlue}\normalfont\large\bfseries}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\color{myDarkBlue}\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
-\titleformat{\paragraph}{\color{myDarkBlue}\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+% =============================================================================
+%  Section Formatting (Requires the titlesec package)
+% =============================================================================
+\titleformat{\section}{\color{myDarkBlue}\normalfont\Large\bfseries}{\thesection}{1em}{}%
+\titleformat{\subsection}{\color{myDarkBlue}\normalfont\large\bfseries}{\thesubsection}{1em}{}%
+\titleformat{\subsubsection}{\color{myDarkBlue}\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}%
+\titleformat{\paragraph}{\color{myDarkBlue}\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}%
 
-% Customize \maketitle
-\pretitle{\begin{center}\Huge\bfseries\color{myDarkBlue}}
-        \posttitle{\par\end{center}\vskip 1.5em}
+% =============================================================================
+%  Customized \maketitle Behavior
+% =============================================================================
+\pretitle{%
+    \begin{center}%
+        \Huge\bfseries\color{myDarkBlue}%
+        }%
+        \posttitle{%
+        \par\end{center}\vskip 1.5em
+}%
 \preauthor{\begin{center}\large}
         \postauthor{\end{center}}
 \predate{\begin{center}\large}
         \postdate{\end{center}}
 
+% =============================================================================
+%  A Second Listing Style (lstStyle0) & Default
+% =============================================================================
 \lstdefinestyle{lstStyle0}{
     autogobble,
     columns=fullflexible,
     showspaces=false,
     showtabs=false,
-    breaklines=true,
     showstringspaces=false,
+    breaklines=true,
     breakatwhitespace=true,
     escapeinside={(*@}{@*)},
     identifierstyle=\color{myPurple},
@@ -114,26 +132,36 @@
     captionpos=b,
     xleftmargin=5.5ex
 }
+\lstset{style=lstStyle0} % Set style 0 as the default
 
-% Set style 0 as the default
-\lstset{style=lstStyle0}
+% =============================================================================
+%  tcolorbox for listings
+% =============================================================================
+% \tcbuselibrary{listingsutf8}
+% \tcbuselibrary{listings}
 
-% Define a new tcolorbox style with line numbers
-\tcbuselibrary{listingsutf8}
-\tcbuselibrary{listings}
-
-% Column separation default
+% =============================================================================
+%  Column Separation
+% =============================================================================
 \setlength{\columnsep}{0.65cm}
 
-% Only externalize if we are told to
+% =============================================================================
+%  Externalize TikZ Figures (requires -shell-escape)
+% =============================================================================
 \IfFileExists{no_externalize.flag}{
-    % Do nothing
+    % do nothing
 }{
     \tikzexternalize[prefix=tikz_figures/]
+    \tcbset{shield externalize}
 }
 
-% Custom SI units
+% =============================================================================
+%  Additional SI Units
+% =============================================================================
 \DeclareSIUnit{\flop}{flop}
 \DeclareSIUnit{\flops}{flops}
 
+% =============================================================================
+%  Captions
+% =============================================================================
 \captionsetup{compatibility=false}

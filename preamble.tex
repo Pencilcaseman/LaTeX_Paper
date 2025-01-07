@@ -1,7 +1,9 @@
+% -----------------------------------------------------------------------------
 % Copyright Toby Davis
 % See LICENSE for details
+% -----------------------------------------------------------------------------
 
-% Draft Mode
+% === Draft Mode ===
 \IfFileExists{draft.flag}{
     % Set draft flag
     \newcommand{\draft}{true}
@@ -11,15 +13,17 @@
 
 \newcommand{\ifdraft}[1]{\ifthenelse{\equal{\draft}{true}}{#1}{}}
 
-% Provide \code{something useful} for inline code
-\newcommand{\code}{\texttt}
+% === Inline Code Macro ===
+\newcommand{\code}[1]{\texttt{#1}}
 
-% Red box
+% === Colored Boxes ===
+
+% -- Generic colored box (color passed as argument) --
 \newtcolorbox{coloredboxImpl}[2]{%
     colback=#1!5!white,
     colframe=#1,
     sharp corners,
-    title={#2},
+    title={#2}
 }
 
 \newenvironment{coloredbox}[2]{
@@ -30,12 +34,12 @@
     \ifdraft{\linenumbers}
 }
 
-% Grey box
+% -- Grey box --
 \newtcolorbox{greyboxImpl}[1]{%
     colback=black!5!white,
     colframe=white!25!black,
     sharp corners,
-    title={#1},
+    title={#1}
 }
 
 \newenvironment{greybox}[1]{
@@ -43,16 +47,15 @@
     \begin{greyboxImpl}{#1}
         }{%
     \end{greyboxImpl}
-
     \ifdraft{\linenumbers}
 }
 
-% Red box
+% -- Red box --
 \newtcolorbox{redboxImpl}[1]{%
     colback=myRed!5!white,
     colframe=myDarkRed,
     sharp corners,
-    title={#1},
+    title={#1}
 }
 
 \newenvironment{redbox}[1]{
@@ -63,12 +66,12 @@
     \ifdraft{\linenumbers}
 }
 
-% Blue box
+% -- Blue box --
 \newtcolorbox{blueboxImpl}[1]{%
     colback=myBlue!5!white,
     colframe=myDarkBlue,
     sharp corners,
-    title={#1},
+    title={#1}
 }
 
 \newenvironment{bluebox}[1]{
@@ -79,12 +82,12 @@
     \ifdraft{\linenumbers}
 }
 
-% Green box
+% -- Green box --
 \newtcolorbox{greenboxImpl}[1]{%
     colback=myGreen!5!white,
     colframe=myDarkGreen,
     sharp corners,
-    title={#1},
+    title={#1}
 }
 
 \newenvironment{greenbox}[1]{
@@ -95,12 +98,12 @@
     \ifdraft{\linenumbers}
 }
 
-% Code box
+% -- Code box --
 \newtcolorbox{codeboxImpl}[1]{%
     colback=blue!3!white,
     colframe=white!50!black,
     sharp corners,
-    title={\faCode \quad #1},
+    title={\faCode \quad #1}
 }
 
 \newenvironment{codebox}[1]{
@@ -111,14 +114,16 @@
     \ifdraft{\linenumbers}
 }
 
+% === Theorem-like Environments ===
 \newmdtheoremenv{theorem}{Theorem}
 \newmdtheoremenv{lemma}{Lemma}
 \newmdtheoremenv{corollary}{Corollary}
 \newmdtheoremenv{proposition}{Proposition}
 
-% Define a nice C++ typesetting
+% === C++ Macro ===
 \newcommand\CPP{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\relsize{-3}{\textbf{++}}}}
 
+% === Subtitle Command ===
 \newcommand{\subtitle}[1]{%
     \posttitle{%
         \par\end{center}
@@ -126,12 +131,12 @@
         \vskip0.5em}%
 }
 
-\NewDocumentCommand{\pgfPlotIfNotNaN}{ m }
-{%
-    \pgfmathfloatifflags{#1}{3}
-    {}% NaN
-    {\pgfmathprintnumber{#1}}% not NaN
+% === PGF/TikZ Utility Command ===
+\NewDocumentCommand{\pgfPlotIfNotNaN}{ m }{%
+    \pgfmathfloatifflags{#1}{3}%
+    {}% If NaN, do nothing
+    {\pgfmathprintnumber{#1}}% If not NaN, print the number
 }
 
-% \newcommand{\ztotpagesminusone}{\number\numexpr\getpagerefnumber{LastPage}\relax}
+% === Page Referencing Command ===
 \newcommand{\ztotpagesminusone}{\getpagerefnumber{LastPage}}
