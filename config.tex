@@ -3,6 +3,8 @@
 % See LICENSE for details
 % -----------------------------------------------------------------------------
 
+\setmonofont{Source Code Pro}
+
 \pgfplotsset{compat=1.18}
 
 % For debugging, full error contexts:
@@ -82,6 +84,7 @@
 \definecolor{myDarkRed}{rgb}{0.41, 0.02, 0.00}
 \definecolor{myDarkGreen}{rgb}{0.00, 0.41, 0.05}
 \definecolor{myDarkBlue}{rgb}{0.03, 0.11, 0.44}
+\definecolor{myDarkGray}{rgb}{0.25, 0.25, 0.25}
 
 % =============================================================================
 %  Section Formatting (Requires the titlesec package)
@@ -95,6 +98,8 @@
 %  Customized \maketitle Behavior
 % =============================================================================
 \pretitle{%
+    \hrule
+    \vspace{2em}
     \begin{center}%
         \Huge\bfseries\color{myDarkBlue}%
         }%
@@ -124,7 +129,7 @@
     stringstyle=\color{myRed},
     numberstyle=\color{myGray}\ttfamily\boxeddecimalnum,
     morekeywords={psrotate},
-    basicstyle=\ttfamily\footnotesize,
+    basicstyle=\fontencoding{T1}\ttfamily\footnotesize,
     frame=1,
     numbers=left,
     framesep=22pt,
@@ -137,8 +142,8 @@
 % =============================================================================
 %  tcolorbox for listings
 % =============================================================================
-% \tcbuselibrary{listingsutf8}
-% \tcbuselibrary{listings}
+\tcbuselibrary{listingsutf8}
+\tcbuselibrary{listings}
 
 % =============================================================================
 %  Column Separation
