@@ -42,22 +42,26 @@ jobs:
       - name: Build Final
         run: |
           make
-          cp my_paper.pdf final.pdf
+          PROJECT_NAME=$(sed -n 's/^PROJECT_NAME = //p' project_name)
+          cp ${PROJECT_NAME}.pdf final.pdf
 
       - name: Build Draft
         run: |
           make draft
-          cp my_paper.pdf draft.pdf
+          PROJECT_NAME=$(sed -n 's/^PROJECT_NAME = //p' project_name)
+          cp ${PROJECT_NAME}.pdf draft.pdf
 
       - name: Build Tectonic
         run: |
           make tectonic
-          cp my_paper.pdf tectonic-final.pdf
+          PROJECT_NAME=$(sed -n 's/^PROJECT_NAME = //p' project_name)
+          cp ${PROJECT_NAME}.pdf tectonic-final.pdf
 
       - name: Build Draft Tectonic
         run: |
           make tectonic-draft
-          cp my_paper.pdf tectonic-draft.pdf
+          PROJECT_NAME=$(sed -n 's/^PROJECT_NAME = //p' project_name)
+          cp ${PROJECT_NAME}.pdf tectonic-draft.pdf
 
       - name: Find and Zip Log Files
         if: failure()
